@@ -80,6 +80,29 @@ view: CustomerSubscriptionCube {
         drill_fields: [Customer_Hierarchy_Customer_Id]
     }
 
+    dimension: Date_Month_Hierarchy_Date {
+        label: " Date"
+        group_label: "Date Month Hierarchy"
+        type: date
+        sql: ${TABLE}.`Date`;;
+    }
+
+    dimension: Date_Month_Hierarchy_Month {
+        label: "  Month"
+        group_label: "Date Month Hierarchy"
+        type: date_month
+        sql: ${TABLE}.`Month`;;
+        drill_fields: [Date_Month_Hierarchy_Date]
+    }
+
+    dimension: Date_Month_Hierarchy_Year {
+        label: "   Year"
+        group_label: "Date Month Hierarchy"
+        type: date_year
+        sql: ${TABLE}.`Year`;;
+        drill_fields: [Date_Month_Hierarchy_Month]
+    }
+
     dimension: Product_Hierarchy_Billing_Cycle {
         label: "  Billing Cycle"
         group_label: "Product Hierarchy"
@@ -119,22 +142,40 @@ view: CustomerSubscriptionCube {
     }
 
 
-    measure: CasesDC {
-        label: "Cases - DC"
+    measure: CasesDc {
+        label: "Cases DC"
         type: count_distinct
-        sql: ${TABLE}.`CasesDC`;;
+        sql: ${TABLE}.`CasesDc`;;
     }
 
     measure: ChurnSum {
-        label: "Churn Sum"
+        label: "Churn SUM"
         type: sum
         sql: ${TABLE}.`ChurnSum`;;
     }
 
-    measure: DurationAVG {
+    measure: DurationAvg {
         label: "Duration AVG"
         type: average
-        sql: ${TABLE}.`DurationAVG`;;
+        sql: ${TABLE}.`DurationAvg`;;
+    }
+
+    measure: Product1Ndc {
+        label: "Product 1 NDC"
+        type: sum
+        sql: ${TABLE}.`Product1Ndc`;;
+    }
+
+    measure: product2Ndc {
+        label: "Product 2 NDC"
+        type: sum
+        sql: ${TABLE}.`product2Ndc`;;
+    }
+
+    measure: ProductTotalNdc {
+        label: "Product Total NDC"
+        type: count_distinct
+        sql: ${TABLE}.`ProductTotalNdc`;;
     }
 
 }

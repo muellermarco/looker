@@ -166,15 +166,15 @@ view: CustomerSubscriptionCube {
         sql: ${TABLE}.`Product1Ndc`;;
     }
 
-    measure: product2Ndc {
+    measure: Product2Ndc {
         label: "Product 2 NDC"
         type: sum
-        sql: ${TABLE}.`product2Ndc`;;
+        sql: ${TABLE}.`Product2Ndc`;;
     }
 
     measure: ProductTotalNdc {
         label: "Product Total NDC"
-        type: count_distinct
+        type: average
         sql: ${TABLE}.`ProductTotalNdc`;;
     }
 

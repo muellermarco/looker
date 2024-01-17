@@ -114,6 +114,7 @@ view: MM_TPC_DS_Demo_Cube {
 
     dimension: Date_Dimension_Ship_Calendar_Year {
         label: "    Ship Calendar Year"
+        description: "Year of the calendar"
         group_label: "Date Attributes.Ship Date Dimension"
         type: date_year
         sql: ${TABLE}.`Ship Calendar Year`;;
@@ -145,6 +146,7 @@ view: MM_TPC_DS_Demo_Cube {
 
     dimension: Date_Dimension_Sold_Calendar_Year {
         label: "    Sold Calendar Year"
+        description: "Year of the calendar"
         group_label: "Date Attributes.Sold Date Dimension"
         type: date_year
         sql: ${TABLE}.`Sold Calendar Year`;;
